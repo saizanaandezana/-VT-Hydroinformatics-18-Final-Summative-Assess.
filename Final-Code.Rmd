@@ -1,0 +1,133 @@
+---
+title: "Final Assessment"
+output: html_notebook
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Final Exam/Summative Assessment
+
+Complete the tasks below using the data provided. Use the existing code
+chunks, adding more if needed. Be sure your code is well-formatted and
+commented appropriately.
+
+You are allowed to liberally copy and paste from the course
+notes/bookdown. There is no need to reinvent the wheel. You'll need to
+tweak things here or there to address the specific questions, but for
+the watershed delineation, fdc, and HBV parts, there is a LOT you can
+copy and paste from the course notes!
+
+Load the required packages here:
+
+```{r}
+
+```
+
+## Part 1: McDonald Hollow
+
+We are just starting to work at a new watershed monitoring station in
+McDonald Hollow on Brush Mountain outside Blacksburg and need to do some
+preliminary data analysis. Produce the following items to help describe
+the site.
+
+### a. A map of the watershed that drains to the station. (20 pts)
+
+The coordinates of the station are roughly 37.24, -80.483. There is a
+DEM of the area in the Data folder. It has already been prepared for
+hydrologic analysis (filled and breached).
+
+Show the watershed outline on this map over some sort of basemap that
+allows us to see terrain. This could be a hillshade or a default basemap
+from an open repository.
+
+```{r}
+
+```
+
+### b. Make some plots of stage and specific conductivity. 
+
+hint: you will have to join these two datasets to do this. Also, there
+is some bad data at the start of the stage dataset (intentionaly left
+for you :-)). The pressure transducer data was not being corrected with
+barometric pressure for a while, so there are stage values that are far
+too high (in the 9 m range). Be sure to filter out that time period.
+Additionally, filter out any Conductivity values above 60
+microsiemens/cm.
+
+Data prep: You'll use "McDonald_Conductivity.csv" and
+"McDonald_Stage.csv" in the Data folder
+
+Conductivity is in units of microsiemens per centimeter **(10 points)**
+
+```{r}
+
+```
+
+### Plots to create:
+
+Stage and Specific Conductivity v. Time use facets or a composite plot.
+**(10 pts)**
+
+```{r}
+
+```
+
+A flow duration curve using the stage data. Be careful with your axis
+labels. **(10 pts)**
+
+```{r}
+
+```
+
+Stage (x) plotted against specific conductivity (y). **(10 pts)**
+
+```{r}
+
+```
+
+## Part 2: HBV Calibration
+
+Calibrate the HBV model for watershed 3 at Hubbard Brook (same time
+period as in class) using the snow melt data set rather than discharge.
+Use a 1000 run Monte Carlo to do this.
+
+For your best model run, calibrated to snow melt, calculate the NSE for
+discharge.
+
+Prep Data for the Model and load HBV function: **(10 pts)**
+
+```{r}
+
+```
+
+Calibrate HBV on snow with 1000 run monte carlo: **(10 pts)**
+
+\*Note: In the monte carlo in the bookdown, Use cbind to add Qobs. In
+this version you need to add Qobs1, because it has a DATE column. This
+allows you to bring in the snow data by joining on the DATE column.
+
+```{r}
+
+```
+
+### Make two plots:
+
+a.  Observed vs. Modeled discharge **(5 pts)**
+
+    ```{r}
+
+    ```
+
+b.  Observed vs. Modeled snow **(5 pts)**
+
+    ```{r}
+
+    ```
+
+And provide the snow NSE and the discharge NSE. **(5 pts)**
+
+### Answer the following question:
+
+Was the discharge NSE better or worse than when we calibrated on
+discharge? Why do you think this is? **(5 pts)**
